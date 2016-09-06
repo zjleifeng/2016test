@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends 'base.html' %}
+    {% block title %}欢迎光临首页{% endblock %}
+
+</head>
+<body>
+
+{% block content %}
+{% include 'ad.html' %}
+    {% for items in List %}
+    {{ items }}{% if not forloop.last %},{% endif %}
+    {% endfor %}
+
+    {% for key,value in info_dict.items %}
+    {{ key }}:{{ value }}
+    {% endfor %}
+
+    站点:{{info_dict.site }} 内容:{{ info_dict.content }}
+    {% for i in TutorialList %}
+    {{ i }}
+    {% endfor %}
+{% endblock %}
+
+
+</body>
+</html>

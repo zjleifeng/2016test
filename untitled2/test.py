@@ -56,6 +56,505 @@ def kaifang():
     return l
 
 
+#coding:utf-8
+
+#4个数字1234能组成多少个3位数
+
+def paixu():
+    for x in range(1,5):
+        for y in range(1,5):
+            for z in range(1,5):
+                if (x!=y) and (x!=z) and (y!=z):
+                    print x,y,z
+
+
+
+
+
+"""企业发放的奖金根据利润提成。利润(I)低于或等于10万元时，奖金可提10%；
+利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分，可可提成7.5%；
+20万到40万之间时，高于20万元的部分，可提成5%；
+40万到60万之间时高于40万元的部分，可提成3%；
+60万到100万之间时，高于60万元的部分，可提成1.5%，
+高于100万元时，超过100万元的部分按1%提成，从键盘输入当月利润I，求应发放奖金总数？
+
+程序分析：请利用数轴来分界，定位。注意定义时需把奖金定义成长整型。"""
+
+
+
+def lirun():
+    zonge=int(raw_input("输入金额："))
+    arr=[1000000,600000,400000,200000,100000,0]
+    per=[0.01,0.015,0.03,0.05,0.075,0.1]
+    li=0
+    for i in range(0,6):
+        if zonge>arr[i]:
+            li+=(zonge-arr[i])*per[i]
+            zonge=arr[i]
+
+    print li
+
+
+
+"""题目：一个整数，它加上100和加上268后都是一个完全平方数，请问该数是多少？
+
+程序分析：在10000以内判断，将该数加上100后再开方，加上268后再开方，
+如果开方后的结果满足如下条件，即是结果。请看具体分析："""
+
+
+
+def kaifang():
+    import math
+    l=[]
+    for n in range(10000):
+        x=int(math.sqrt(n+100))
+        y=int(math.sqrt(n+268))
+        if x*x==n+100 and y*y==n+268:
+            l.append(n)
+    return l
+
+
+
+
+
+"""Python 练习实例14
+
+
+题目：将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5。
+
+程序分析：对n进行分解质因数，应先找到一个最小的质数k，然后按下述步骤完成：
+(1)如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。
+(2)如果n<>k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,重复执行第一步。
+(3)如果n不能被k整除，则用k+1作为k的值,重复执行第一步。
+
+程序源代码(输出不换行最后加,或者用stdout.write)"""
+
+
+def zhiyinshufenjie():
+    import sys
+    n=int(raw_input("输入一个整数:"))
+    print "%d="%n,
+    for i in range(2,n+1):
+        while i!=n:
+            if n%i==0:
+                sys.stdout.write(str(i))
+                sys.stdout.write("*")
+                n=n/i
+            else:break
+    print "%d"%n
+
+
+
+
+
+
+
+"""Python 练习实例15
+
+
+题目：利用条件运算符的嵌套来完成此题：学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+
+程序分析：程序分析：(a>b)?a:b这是条件运算符的基本例子。
+
+程序源代码："""
+
+
+def tiaojianyunsuan():
+    n=int(raw_input("输入成绩："))
+    if n>=90:
+        grade="A"
+    elif 90>n>=60:
+        grade="B"
+    else:grade="C"
+    print grade
+
+#tiaojianyunsuan()
+
+
+"""Python 练习实例16
+
+
+题目：输出指定格式的日期。
+
+程序分析：使用 datetime 模块。
+
+程序源代码："""
+
+def zdtime():
+    import datetime
+    import time
+# 输出今日日期，格式为 dd/mm/yyyy。更多选项可以查看 strftime() 方法
+    today=datetime.date.today().strftime("%d/%m/%Y")
+    today1=time.strftime("%d/%m/%Y")
+    today3=datetime.datetime.strftime(datetime.datetime.now(),"%d/%m/%Y")
+    today4=str(datetime.datetime.now())[:19]
+
+
+# 创建日期对象
+
+
+# 日期算术运算
+
+ # 日期替换
+
+    print today,today1,today3,today4
+
+
+
+#zdtime()
+
+
+
+
+"""Python 练习实例17
+
+
+题目：输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+
+程序分析：利用while语句,条件为输入的字符不为'\n'。
+
+程序源代码："""
+
+def fenbian():
+    import string
+    n=raw_input("输入一串字符：")
+    #list(n)
+    zimu=0
+    shuzi=0
+    kongge=0
+    oth=0
+    for i in n:
+        if i.isalpha():
+            zimu+=1
+        elif i.isdigit():
+            shuzi+=1
+        elif i.isspace():
+            kongge+=1
+        else:oth +=1
+
+    print '字母=%d,数字=%d,空格=%d,其他=%d' %(zimu,shuzi,kongge,oth)
+
+fenbian()
+
+
+"""题目：一个整数，它加上100和加上268后都是一个完全平方数，请问该数是多少？
+程序分析：在10000以内判断，将该数加上100后再开方，加上268后再开方，
+如果开方后的结果满足如下条件，即是结果。请看具体分析："""
+
+import math
+
+def kaifang():
+    for i in range(100000):
+        x=int(math.sqrt(i+100))
+        y=int(math.sqrt(i+268))
+        if x*x==i+100 and y*y==i+268:
+            print "这个数是%s"%i
+        else:pass
+
+
+
+"""题目：输入某年某月某日，判断这一天是这一年的第几天？
+程序分析：以3月5日为例，应该先把前两个月的加起来，然后再加上5天即本年的第几天，特殊
+情况，闰年且输入月份大于3时需考虑多加一天："""
+
+def nian():
+    year=int(raw_input("输入年份:"))
+    mouth=int(raw_input("输入月份:"))
+    data=int(raw_input("输入几号:"))
+
+#非闰年
+    mouths1=[0,31,59,90,120,151,181,212,243,273,304,334]
+
+
+#判断是否为闰年
+    if 0 < mouth <= 12:
+
+        if year%4==0 and year%400 !=0 or year%400==0:
+            x=mouths1[mouth-1]+data
+            if mouth>=3:
+                x=x+1
+
+            print x
+        else:
+            x=mouths1[mouth-1]+data
+            print x
+
+
+    else:
+        print "输入错误月份"
+
+
+
+
+
+
+"""题目：输入三个整数x,y,z，请把这三个数由小到大输出。
+程序分析：我们想办法把最小的数放到x上，先将x与y进行比较，
+如果x>y则将x与y的值进行交换，然后再用x与z进行比较，
+如果x>z则将x与z的值进行交换，这样能使x最小。
+"""
+
+
+def paixu():
+
+
+    l1=[]
+    for i in range(3):
+        m=int(raw_input("输入一个数："))
+        l1.append(m)
+
+    print sorted(l1)
+
+
+
+"""题目：斐波那契数列。
+程序分析：斐波那契数列（Fibonacci sequence），又称黄金分割数列，
+指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+在数学上，费波那契数列是以递归的方法来定义：（后一个数的前2个数字相加！）
+F（0）=0，F（1）=1，F（n）=F(n-1)+F(n-2)（n≥2，n∈N*）"""
+
+def fib(n):
+	if n==1 or n==2:
+		return 1
+	return fib(n-1)+fib(n-2)
+
+
+
+
+
+def bona(n):
+    l=[]
+    if n ==1:
+        l=[1]
+    if n==2:
+        l=[1,1]
+    if n>2:
+        l=[1,1]
+        for i in range(2,n):
+            l.append(l[-1]+l[-2])
+
+
+    return l
+
+
+
+"""Python 练习实例8
+
+题目：输出9*9乘法口诀表。
+程序分析：分行与列考虑，共9行9列，i控制行，j控制列。
+程序源代码："""
+
+
+def chengfa():
+    for i in range(1,10):
+        for j in range(1,i+1):
+            x=i*j
+            print "%d * %d = %d"%(i,j,x),
+
+        print(" ")
+
+
+
+
+"""Python 练习实例9
+
+题目：暂停一秒输出。
+程序分析：time模块的time.sleep()。
+程序源代码："""
+
+
+import time
+def tsl():
+    for i in range(2):
+        time.sleep(1)
+
+        print i
+
+    print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+
+    time.sleep(2)
+    print time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+
+
+"""Python 练习实例11
+
+题目：古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，
+小兔子长到第三个月后每个月又生一对兔子，
+假如兔子都不死，问每个月的兔子总数为多少？
+程序分析：兔子的规律为数列1,1,2,3,5,8,13,21....
+程序源代码：斐波那契数列"""
+
+
+def tuzi(n):
+    l=[]
+    if n==1:
+        l=[1]
+    if n==2:
+        l=[1,1]
+    if n>2:
+        l=[1,1]
+    for i in range(2,n):
+        l.append(l[-1]+l[-2])
+
+    zongshu=l[-1]*2
+    return zongshu
+
+
+
+
+
+"""Python 练习实例12
+
+题目：判断101-200之间有多少个素数，并输出所有素数。
+程序分析：判断素数的方法：用一个数分别去除2到sqrt(这个数)，如果能被整除，则表明此数不是素数，反之是素数。 　　　　　
+程序源代码："""
+
+def sushu():
+    l=[]
+    for i in range(101,200):
+        s=int(math.sqrt(i)+1)
+        for x in range(2,s):
+            if i%x==0:
+                break
+            if x==s-1:
+                l.append(i)
+
+    return l,len(l)
+
+
+
+
+"""
+Python 练习实例13
+
+题目：打印出所有的"水仙花数"，所谓"水仙花数"是指一个三位数，其各位数字立方和等于该数本身。例如：153是一个"水仙花数"，因为153=1的三次方＋5的三次方＋3的三次方。
+程序分析：利用for循环控制100-999个数，每个数分解出个位，十位，百位。
+程序源代码："""
+
+
+def shuixianhuashu():
+    l=[]
+    for i in range(100,1000):
+        x=str(i)
+        gewei=int(x[2])
+        shiwei=int(x[1])
+        baiwei=int(x[0])
+        #if gewei*gewei*gewei + shiwei*shiwei*shiwei + baiwei*baiwei*baiwei == i:
+        if gewei**3 + shiwei**3 +baiwei**3==i:
+            l.append(i)
+
+
+    return l
+
+
+
+
+
+
+
+
+"""Python 练习实例14
+
+题目：将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5。
+程序分析：对n进行分解质因数，应先找到一个最小的质数k，然后按下述步骤完成：
+(1)如果这个质数恰等于n，则说明分解质因数的过程已经结束，打印出即可。
+(2)如果n<>k，但n能被k整除，则应打印出k的值，并用n除以k的商,作为新的正整数你n,重复执行第一步。
+(3)如果n不能被k整除，则用k+1作为k的值,重复执行第一步。
+程序源代码："""
+
+
+def fen():
+    x=int(raw_input("输入一个整数:"))
+    l=[]
+    m=int(math.sqrt(x))
+    for i in range(3,x):
+        while i>2:
+
+            for y in range(2,i/2+1):
+                if i%y==0:
+                    break
+
+            l.append(i)
+
+    return l
+
+    print fen()
+
+
+
+
+
+
+"""Python 练习实例18
+
+题目：求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，几个数相加有键盘控制。
+程序分析：关键是计算出每一项的值。
+程序源代码："""
+
+
+def jiafa():
+    num=int(raw_input("输入一个数："))
+    frequency=int(raw_input("输入相加次数："))
+    ln=[]
+    ln1=[]
+    nSum=0
+    Tn=0
+    #方法一加入列表
+    for i in range(1,frequency+1):
+        ln.append(str(num)*i)
+    print ln
+
+
+
+    for x in ln:
+        nSum+=int(x)
+    print nSum
+
+    sss=reduce(lambda x,y:int(x)+int(y),ln)
+
+    print sss
+
+    # 方法二加入列表
+    for count in range(frequency):
+        Tn += num
+        num = num * 10
+        ln1.append(Tn)
+    print ln1
+    zonghe=reduce(lambda x,y:x+y,ln1)
+    print zonghe
+
+#jiafa()
+
+
+
+
+
+"""Python 练习实例19
+
+题目：一个数如果恰好等于它的因子之和，这个数就称为"完数"。例如6=1＋2＋3.编程找出1000以内的所有完数。
+程序分析：请参照程序Python 练习实例14。
+程序源代码：
+
+"""
+
+
+def wanshu():
+    l=[]
+    li=[]
+    for i in  range(2,1000):
+        for n in range(1,i/2+1):
+            if i%n==0:
+                l.append(n)
+
+        if reduce(lambda x,y:x+y,l)==i:
+            li.append(i)
+            print li,l
+        l=[]
+        li=[]
+
+    print li
+
+#wanshu()
 
 
 

@@ -234,7 +234,7 @@ def fenbian():
 
     print '字母=%d,数字=%d,空格=%d,其他=%d' %(zimu,shuzi,kongge,oth)
 
-fenbian()
+#fenbian()
 
 
 """题目：一个整数，它加上100和加上268后都是一个完全平方数，请问该数是多少？
@@ -1282,16 +1282,239 @@ Python 练习实例38
 
 
 def juzhen():
-    pass
+    h=[]
+    l=[]
+    t=0
+    for i in range(3):
+        for j in range(3):
+            x=int(raw_input("shuru:"))
+            l.append(x)
+        h.append(l)
+        l=[]
+
+    for n in range(3):
+        t+=h[n][n]
+    print t
+
+#juzhen()
 
 
 
 
+"""
+Python 练习实例39
+
+题目：有一个已经排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+程序分析：首先判断此数是否大于最后一个数，然后再考虑插入中间的数的情况，插入后此元素之后的数，依次后移一个位置。
+程序源代码：
+
+"""
+
+def shuzucharu():
+
+    l=[1,3,5,7,12,32,44,76,99,123]
+    num=int(raw_input("输入一个数:"))
+    n=len(l)
+    if num>l[-1]:
+        l.append(num)
+    else:
+        for i in l:
+            if i >num:
+
+                x=l.index(i)
+                break
+        l.insert(x,num)
+
+    print l
+
+#shuzucharu()
+
+
+"""
+Python 练习实例40
+
+题目：将一个数组逆序输出。
+程序分析：用第一个与最后一个交换。
+程序源代码：
+
+"""
+def nixushuchu():
+    l=[1,2,3,4,5,6,7,8,9,10,11]
+
+    n=len(l)
+    h=n/2
+    for i in range(h):
+
+        l[i],l[n-(i+1)]=l[n-(i+1)],l[i]
+    print l
+
+
+#nixushuchu()
+
+
+
+"""
+Python 练习实例41
+题目：模仿静态变量的用法。
+程序分析：无。
+程序源代码：
+
+
+def varfunc():
+    var = 0
+    print 'var = %d' % var
+    var += 1
+if __name__ == '__main__':
+    for i in range(3):
+        varfunc()
+
+# 类的属性
+# 作为类的一个属性吧
+class Static:
+    StaticVar = 5
+    def varfunc(self):
+        self.StaticVar += 1
+        print self.StaticVar
+
+
+
+print Static.StaticVar
+a = Static()
+for i in range(3):
+    a.varfunc()
+
+
+"""
+
+
+"""
+Python 练习实例45
+题目：统计 1 到 100 之和。
+程序分析：无
+程序源代码：
+
+"""
+def he100():
+    s=0
+    for i in range(1,101):
+        s+=i
+
+    print s
+
+
+    print reduce(lambda x,y:x+y,range(1,101))
+
+
+#he100()
+
+
+"""
+Python 练习实例46
+
+题目：求输入数字的平方，如果平方运算后小于 50 则退出。
+程序分析：无
+程序源代码：
+
+"""
+
+
+def pingfang():
+    while True:
+        x=float(raw_input("输入一个数："))
+        t=x*x
+        print "这个数的平方是：%d"%t
+        if t<50:
+            print "这个数的平方小于50，程序终止！"
+            return False
+
+
+
+#pingfang()
+
+
+
+"""
+Python 练习实例47
+
+题目：两个变量值互换。
+程序分析：无
+程序源代码：
+
+"""
+
+def bianliangfuhuan(a,b):
+    #a,b=b,a
+    #return (a,b)
+
+    c = a
+    a = b
+    b = c
+    print a,b
+
+#print bianliangfuhuan(10,20)
+
+
+"""Python 练习实例50
+
+题目：输出一个随机数。
+程序分析：使用 random 模块。
+程序源代码："""
+
+
+
+def suijishu():
+    l=[1,2,3,4,5,6,7,8,9]
+    import random
+
+    print random.randint(1,5)#用于生成一个指定范围内的整数。其中参数a是下限，参数b是上限，生成的随机数n: a <= n <= b
+    print random.random()   #random.random()用于生成一个0到1的随机符点数: 0 <= n < 1.0
+    print random.uniform(1,9)#用于生成一个指定范围内的随机符点数，两个参数其中一个是上限，一个是下限。如果a > b，则生成的随机数n: a <= n <= b。如果 a <b， 则 b <= n <= a。
+    print random.randrange(1,9,2)#从指定范围内，按指定基数递增的集合中 获取一个随机数。
+    print random.choice("suiji")#从序列中获取一个随机元素
+
+    random.shuffle(l)#用于将一个列表中的元素打乱
+    print l
+
+    print random.sample([1,2,3,4,5,6,7,8,9,10],4)#从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。
+
+#suijishu()
 
 
 
 
+"""
+Python 练习实例51
+Python 100例 Python 100例
+题目：学习使用按位与 & 。
+程序分析：0&0=0; 0&1=0; 1&0=0; 1&1=1。
+程序源代码：
 
+按位运算符是把数字看作二进制来进行计算的。Python中的按位运算法则如下：
 
+按位与   ( bitwise and of x and y )
 
+  &  举例： 5&3 = 1  解释： 101  11 相同位仅为个位1 ，故结果为 1
 
+按位或   ( bitwise or of x and y )
+
+  |  举例： 5|3 = 7  解释： 101  11 出现1的位是 1 1 1，故结果为 111
+
+按位异或 ( bitwise exclusive or of x and y )
+
+  ^  举例： 5^3 = 6  解释： 101  11 对位相加(不进位)是 1 1 0，故结果为 110
+
+按位反转 (the bits of x inverted )
+
+  ~  举例： ~5 = -6  解释： 将二进制数+1之后乘以-1，即~x = -(x+1)，-(101 + 1) = -110
+
+    按位反转仅能用在数字前面。所以写成 3+~5 可以得到结果-3，写成3~5就出错了
+
+按位左移 （ x shifted left by n bits ）
+
+  << 举例:  5<<2 = 20 解释：101 向左移动2位得到 10100 ，即右面多出2位用0补
+
+按位右移 （ x shifted right by n bits ）
+
+  >> 举例： 5>>2 = 1  解释：101 向右移动2位得到 1，即去掉右面的2位
+
+"""

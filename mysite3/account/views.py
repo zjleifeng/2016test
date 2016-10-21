@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from account.models import User
-from sendmail import send
+from sendmail1 import send
 
 import smtplib
 from email.mime.text import MIMEText

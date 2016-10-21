@@ -1518,3 +1518,76 @@ Python 100例 Python 100例
   >> 举例： 5>>2 = 1  解释：101 向右移动2位得到 1，即去掉右面的2位
 
 """
+
+
+
+
+
+
+"""
+Python 练习实例56
+题目：画图，学用circle画圆形。　　　
+程序分析：无。
+程序源代码：
+"""
+from Tkinter import *
+def huayuan():
+
+
+
+    canvas=Canvas(width=800,height=600,bg='yellow')
+    canvas.pack(expand=YES,fill=BOTH)
+    k=1
+    j=1
+    for i in range(0,26):
+        canvas.create_oval(310-k,250-k,310+k,250+k,width=1)
+        k+=j
+        j+=0.3
+        mainloop()
+
+#huayuan()
+
+
+
+
+
+"""
+Python 练习实例60
+
+题目：计算字符串长度。　　
+程序分析：无。
+程序源代码：
+
+
+len(x)
+"""
+
+"""
+Python 练习实例61
+
+题目：打印出杨辉三角形（要求打印出10行如下图）。　　
+程序分析：无。
+程序源代码：
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+1 6 15 20 15 6 1
+1 7 21 35 35 21 7 1
+1 8 28 56 70 56 28 8 1
+1 9 36 84 126 126 84 36 9 1
+"""
+
+
+def yanghuisanjiao():
+
+
+
+
+
+
+
+
+
